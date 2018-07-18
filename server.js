@@ -20,10 +20,8 @@ const  db = knex({
   client: 'pg',
   version: '7.2',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'allah',
-    database : 'smart-brain'
+    connectionString : process.env.DATABASE_URL,
+    ssl:true
   }
 });
  //end of the knex function
@@ -51,7 +49,7 @@ app.put('/image',(req,res) =>{image.handleimage(req,res,db)} );//end of image en
 app.post('/imageurl',(req,res) =>{image.handleapi(req,res)} );
 
 
-app.listen(8080,()=>{
+app.listen(process.env.PORT || 8080,()=>{
   console.log("i am listening on port 8080");
 
  });//end of listen function
