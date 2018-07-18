@@ -29,11 +29,8 @@ const  db = knex({
 
 
 app.get('/',(req,res)=>{
-  db.select('*').from('users')
-		.then(user=>{
-         res.json(user)})
-		.catch(err=>res.status(400).json('unable to get user'))
-
+  
+         res.send("it is working");
 
      });//end of first get
 
